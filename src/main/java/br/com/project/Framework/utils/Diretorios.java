@@ -1,13 +1,9 @@
 package br.com.project.Framework.utils;
 
-import br.com.project.Framework.exception.FrameWorkExcepition;
-
+import br.com.project.Framework.exception.ProjetoExcecao;
 import java.io.File;
 import java.io.FilenameFilter;
 
-/**
- * Classe para buscar em diretorios arquivos especificos, e possivel limitar/especificar a busca em um diretorio ou nenhum 
- */
 public class Diretorios {
 
 	private File[] matchingFiles = null;
@@ -37,32 +33,20 @@ public class Diretorios {
 		}		
 		return this.filePath;			
 	}
-	
-	
-	/**
-	 * Buscar dentro do diretorio src do projeto algum arquivo com extensao
-	 * @param file String - arquivo com extesao exemplo: file.txt
-	 * @return String - Path absoluto
-	 */
+
 	public String getPathArquivo(String file)  {
 			String[] fileWithExtension = file.split("\\.");
 			String filePath = listar(new File("src" + File.separator), fileWithExtension[0], fileWithExtension[1]);
 			if(filePath == null)
-				throw new FrameWorkExcepition("Arquivo não encontrado: " + file);
+				throw new ProjetoExcecao("Arquivo não encontrado: " + file);
 			return filePath;
 	}
-	
-	/**
-	 * Buscar dentro do diretorio passado procurando por algum arquivo com extensao
-	 * @param dir String - diretorio para busca do arquivo
-	 * @param file String - arquivo com extesao exemplo: file.txt
-	 * @return String - Path absoluto
-	 */
+
 	public String getPathArquivo(String dir, String file)  {
 			String[] fileWithExtension = file.split("\\.");
 			String filePath =  listar(new File(dir + File.separator), fileWithExtension[0], fileWithExtension[1]);
 			if(filePath == null)
-				throw new FrameWorkExcepition("Arquivo não encontrado: " + file + "dentro do diretorio: " + dir);
+				throw new ProjetoExcecao("Arquivo não encontrado: " + file + "dentro do diretorio: " + dir);
 			return filePath;
 			
 	}

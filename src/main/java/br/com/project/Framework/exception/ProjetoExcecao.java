@@ -5,25 +5,25 @@ import br.com.project.Framework.utils.Log;
 /**
  * Exceção de negócios.
  */
-public class FrameWorkExcepition extends RuntimeException {
+public class ProjetoExcecao extends RuntimeException {
 
     private static final long serialVersionUID = 1L;
 
-    public FrameWorkExcepition() {
+    public ProjetoExcecao() {
         super();
     }
 
-    public FrameWorkExcepition(String message, Throwable cause) {
+    public ProjetoExcecao(String message, Throwable cause) {
         super(message, cause);
         Log.info(message);
     }
 
-    public FrameWorkExcepition(String message) {
+    public ProjetoExcecao(String message) {
         super(message);
         Log.info(message);
     }
 
-    public FrameWorkExcepition(Throwable cause) {
+    public ProjetoExcecao(Throwable cause) {
         super(cause);
         Log.info(cause.getMessage());
     }

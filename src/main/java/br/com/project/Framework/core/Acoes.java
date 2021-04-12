@@ -1,6 +1,7 @@
 package br.com.project.Framework.core;
 
 import br.com.project.Framework.utils.Log;
+import io.qameta.allure.Allure;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,11 +29,13 @@ public class Acoes {
         actions.click();
         actions.sendKeys(value);
         actions.build().perform();
+        Allure.step("Digitando: " + value + " campo: " + locator );
     }
 
     protected void clicar(By locator){
         aguardarElementoNaTela(locator);
         driver.findElement(locator).click();
+        Allure.step("Clicando em: " + locator);
     }
 
     /***
@@ -56,6 +59,7 @@ public class Acoes {
     protected void aguardarElementoSumir(By locator) {
         Log.info("Aguardando elemento sumir: " + locator);
         Wait<WebDriver> wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+        wait.until(ExpectedConditions.stalenessOf(driver.findElement(locator)));
     }
+
 }
