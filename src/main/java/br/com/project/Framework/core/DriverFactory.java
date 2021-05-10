@@ -2,6 +2,7 @@ package br.com.project.Framework.core;
 
 import br.com.project.Framework.core.Constantes.TypeRun;
 import br.com.project.Framework.utils.Diretorios;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -78,13 +79,15 @@ public class DriverFactory {
 
                 //*******************************************************************************
 
-                System.setProperty("webdriver.chrome.driver", new Diretorios().getPathArquivo("chromedriver.exe"));
+                //System.setProperty("webdriver.chrome.driver", new Diretorios().getPathArquivo("chromedriver.exe"));
+                WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver(opcao);
 
             } else {
 
                 FirefoxOptions opcao = new FirefoxOptions();
-                System.setProperty("webdriver.gecko.driver", new Diretorios().getPathArquivo("geckodriver.exe"));
+                WebDriverManager.firefoxdriver().setup();
+                //System.setProperty("webdriver.gecko.driver", new Diretorios().getPathArquivo("geckodriver.exe"));
                 driver = new FirefoxDriver(opcao);
             }
 
