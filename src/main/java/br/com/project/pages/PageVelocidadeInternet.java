@@ -32,12 +32,12 @@ public class PageVelocidadeInternet extends ElementsVelocidadeInternet {
         return this;
     }
 
-    public PageVelocidadeInternet resultado() {
-        aguardarElementoSumir(By.xpath("//div[@jsname='k1yjKf']"));
-        return this;
-    }
+//    public PageVelocidadeInternet resultado() {
+//        aguardarElementoSumir(By.xpath("//div[@jsname='k1yjKf']"));
+//        return this;
+//    }
 
-    public void printAllure() {
+    public void gerarResultado() {
         Allure.addAttachment("Screenshot" + LocalDate.now(),
                 new ByteArrayInputStream(((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.BYTES)));
     }

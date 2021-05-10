@@ -1,18 +1,12 @@
 package testes;
 
-import br.com.project.Framework.utils.Diretorios;
 import br.com.project.pages.PageVelocidadeInternet;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TesteVelocidadeInternet {
@@ -37,8 +31,7 @@ public class TesteVelocidadeInternet {
                 .informarTextoCampoPesquisa("testes de velocidade internet")
                 .clicarNoPrimeiroTexto()
                 .clicarExecutarTestesVelocidade()
-                .resultado()
-                .printAllure();
+                .gerarResultado();
 
     }
 }
